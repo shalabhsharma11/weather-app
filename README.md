@@ -71,5 +71,5 @@ This is done to prevent unnecessary calls to DB and OpenWeather API.
 | `SPRING_DATASOURCE_URL` | database URL  | `jdbc:postgresql://database:5432/weather_db` |
 | `SPRING_DATASOURCE_USERNAME` |  Database user name | `user`|
 | `SPRING_DATASOURCE_PASSWORD` | Database password  | `password` |
-| `WEATHER_API_KEY` | OpenWeather Api key. | `N/A` |
+| `WEATHER_API_KEY` | OpenWeather Api key. | Generate the API key going to the [OpenWeather Sign up](https://openweathermap.org/appid) page   |
 | `WEATHER_REQUEST_WAIT_MS` | This will prevent making frequent call to OpenWeather API for particular city. | `120000 ms` |
