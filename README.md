@@ -52,7 +52,7 @@ http://localhost:8080/weather?city=amsterdam
 ### Working
 - On first call app will persist the information to DB and in inmemory cache. 
 - In subsequent calls, if temperature of a city is same then it will return information from cache. 
-- If there are multiple call within `WEATHER_REQUEST_WAIT_MS` then also it will return information from cache.
+- If there are multiple call within `WEATHER_REQUEST_WAIT_MS` for same city then also it will return information from cache.
 - In all other scenario it will save information to DB. 
  
 This is done to prevent unnecessary calls to DB and OpenWeather Api.
