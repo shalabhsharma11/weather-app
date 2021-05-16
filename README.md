@@ -59,7 +59,9 @@ http://localhost:8080/weather?city=amsterdam
 - If there are multiple call within `WEATHER_REQUEST_WAIT_MS` for same city, then also it will return information from cache.
 - In all other scenario it will save information to DB and update cache too.
  
-This is done to prevent unnecessary calls to DB and OpenWeather Api.
+This is done to prevent unnecessary calls to DB and OpenWeather API.
+
+**Decision To Make**: We can also implement to only store the highest and the lowest temperature for a day for a particular city. Need to make decision about the cleanup/archive of the old DB data.
 
 
 ### Configuration
@@ -71,5 +73,3 @@ This is done to prevent unnecessary calls to DB and OpenWeather Api.
 | `SPRING_DATASOURCE_PASSWORD` | Database password  | `password` |
 | `WEATHER_API_KEY` | OpenWeather Api key. | `N/A` |
 | `WEATHER_REQUEST_WAIT_MS` | This will prevent making frequent call to OpenWeather API for particular city. | `120000 ms` |
-
-**Decision To Make**: We can also implement to only store the highest and the lowest temperature for a day for a particular city. Need to make decision about the cleanup/archive of the old DB data.
