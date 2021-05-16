@@ -1,0 +1,32 @@
+#Data Source
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/weather_db
+    username: user
+    password: password
+    initialization-mode: always
+    schema: classpath:data/schema.sql
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.ProgressDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+# logging level
+logging:
+  level:
+    ROOT: INFO
+    com.assignment.spring: DEBUG
+
+weather:
+  api-key: 835da2de57d78ef1994f2cfc726b7c73
+  # Limit the number of requests to Weather API. If request is not older than requestWaitMS, return weather info from cache.
+  request-wait-ms: 120000
+
+

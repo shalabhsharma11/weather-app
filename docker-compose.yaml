@@ -1,0 +1,26 @@
+version: '3'
+services:
+  database:
+    image: postgres:9.6.21 # latest official postgres version
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: weather_db
+    ports:
+      - 5432:5432
+# use volumes to persist data even if container shuts down
+#    volumes:
+#      - database-data:/var/lib/postgresql/data/
+
+  weatherApp:
+    image: weather-app:0.0.1
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/weather_db
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      WEATHER_API_KEY: 835da2de57d78ef1994f2cfc726b7c73
+      WEATHER_REQUEST_WAIT_MS: 10000
+    ports:
+      - 8080:8080
