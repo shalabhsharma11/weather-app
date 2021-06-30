@@ -15,7 +15,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import lombok.extern.slf4j.Slf4j;
 
-// my test changes
 @Service
 @Slf4j
 public class WeatherService {
